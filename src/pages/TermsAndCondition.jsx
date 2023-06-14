@@ -1,5 +1,6 @@
 import React from "react";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar"
+
 import { NavLink } from "react-router-dom";
 import { mascot,deyspeaktext,avatar1,avatar2,avatar3,linkdnicon,instagramicon,twittericon,mobilescreen1,mobilescreen2,mobilescreen3, } from '../assets'
 
