@@ -31,7 +31,7 @@ export default function Navbar() {
           setminutesLeft(minutes);
           setsecLeft(seconds);
         }
-      }, 3000)
+      }, 1000)
     };
     useEffect(() => {
       startTimer();
@@ -46,7 +46,7 @@ export default function Navbar() {
     animate={{ y: -10 }}
     transition={{ delay: 1, duration: 1, type: "spring", stiffness: 120 }}
    >
-     <div className='container'>
+     <div className='container' id='navHome'>
        <div className="mascot">
          <img src={mascot} alt="" className="mascotImage" />
          <img src={deyspeaktext} alt="despeak logo text" className="mascotTextImage" />

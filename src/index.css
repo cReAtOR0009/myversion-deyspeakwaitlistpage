@@ -9,7 +9,6 @@
   /* overflow-y: auto; */
   /* border: 1px solid #01fa9b; */
 }
-/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -37,7 +36,7 @@
 
 :root{
   --accent-color:#FFBC14;
-  --color-dominant:#1c3472;
+  --color-dominant:#082266;
   --color-background-desktop:#082266; 
 }
 a{

@@ -18,6 +18,7 @@ export default function Footer() {
       <p>2023.Deyspeak</p>
     </div>
     <section className="appScreens">
+      <div className="background-gradient">
       <div className='appScreenContainer'>
         <motion.div
         className="appScreen">
@@ -29,6 +30,7 @@ export default function Footer() {
         <div className="appScreen">
           <img src={mobilescreen3} alt="deyspeak mobilescreen3" />
         </div>
+      </div>
       </div>
      </section>
     <div className="privacy">

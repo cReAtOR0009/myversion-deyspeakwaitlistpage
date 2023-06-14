@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import OneSignal from 'react-onesignal';
+
 
 import {closebtn, mascotfull } from '../assets'
 import { textVariant, buttonVariants } from "../animations";
@@ -11,6 +13,16 @@ export const CustomForm = () => {
   const [ShowSubmitbBtn, setShowSubmitbBtn] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
+
+
+  async function runOneSignal(tag) {
+   console.log("onsignal function start running");
+   await OneSignal.sendTag("tech", tag).then(() => {
+    console.log("onsignal function finished running")
+   })
+  }
+  
+
   const { register, handleSubmit, formState: { errors }, } = useForm({
     defaultValues: {
     fullName: "",
@@ -18,16 +30,17 @@ export const CustomForm = () => {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit =async (data) => {
       setShowModal(true)
-    return console.log("onsubmit clicked", data);
+      runOneSignal(data)
+    return console.log( data);
   };
 
   const handleView = async () => {
-    console.log("validate btn clicked");
     setvalidateBtn(false);
     setShowSubmitbBtn(true);
   };
+
 // modal popup
   const Modal = ({showModal, setShowModal}) => {
     return <>
@@ -45,6 +58,11 @@ export const CustomForm = () => {
     </div>}
     </>
   }
+  useEffect(() => {
+    OneSignal.init({
+      appId: "01bb2897-f6e0-4c1e-8991-7c5dbdbff32a"
+    });
+  });
 
   return (
     <div className="formContainer">
@@ -59,11 +77,11 @@ export const CustomForm = () => {
           action=""
           method="post"
           onSubmit={handleSubmit(onSubmit)}
-          onSuccess={() => setShowModal(true)} // valid response
+          // onSuccess={() => setShowModal(true)} 
           onError={() => console.log("error")} // error response
         >
           <input
-            {...register("full Name", { required: true, maxLength: 100 })}
+            {...register("fullName", { required: true, maxLength: 100 })}
             type="text"
             placeholder="full Name"
             style={{ display: ShowSubmitbBtn ? "block" : "none" }}

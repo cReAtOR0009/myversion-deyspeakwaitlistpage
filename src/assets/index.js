@@ -11,6 +11,7 @@ import mobilescreen2 from "./deyspeakmobilescreen2.png"
 import mobilescreen3 from "./deyspeakmobilescreen3.png"
 import closebtn from "./close.svg"
 import mascotfull from "./mascotfull.png"
+import mobilescreenbackground from "./mobileScreenBackground.png"
 
  const images = [
     {
@@ -75,6 +76,7 @@ export {
     mobilescreen3,
     closebtn,
     mascotfull,
+    mobilescreenbackground,
 }
 
 export {images}

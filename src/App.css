@@ -23,7 +23,6 @@ body{
 .modal{
   position: relative;
   top: 30%;
-  /* pointer-events:none ; */
   width: 331.21px;
   margin:0 auto;
   padding:16.8px 30px;
@@ -73,7 +72,6 @@ nav .container{
   align-items: center;
   padding:23px 88px;
   background: var(--accent-color);
-  /* width: 100vw; */
 }
 .mascot{
   display: flex;
@@ -216,16 +214,12 @@ input::placeholder {
   font-weight: 400;
   font-size: 20px;
   line-height: 32px;
-  /* text-align: center; */
 }
-/* input{
-  margin: 0 auto;
-} */
+
 
 form input[type=submit], form input[type=button]{
   color: #212121;
   position: absolute;
-  /* top: 59%; */
   bottom: 0px;
   right: 0px;
   border: none;
@@ -264,7 +258,6 @@ form input[type=submit], form input[type=button]{
 }
 
 .subscribersImage img{
-  /* position: absolute; */
   width: 32px;
   height:32px;
 }
@@ -292,24 +285,36 @@ form input[type=submit], form input[type=button]{
 }
 .subscribersText span{
   font-size: 12px;
-  /* line-height: 30px; */
 }
-
+.background-gradient::after{
+  content: "";
+  bottom:140px;
+  border: 10px solid transparent;
+  display: inline-block;
+  position: relative;
+  z-index: -5;
+  transform: scale(5, 1.5);
+  box-shadow:0 0 50px 20px #5230E1,0 0 30px 30px #eb1a0b, 0 0 150px 50px #c61c35;
+  border-radius: 70%;
+  -webkit-transform: scale(5, 1.5);
+  -moz-transform: scale(5, 1.5);
+  -ms-transform: scale(5, 1.5);
+  -o-transform: scale(5, 1.5);
+}
 section .appScreenContainer{
   display: flex;
   position: relative;
+  margin-bottom:-80px ;
   z-index:0;
-  /*height: 500px;
-  */margin-top: 50px;
-  background-color: transparent;
-  /* height: 500px; */
+  margin-top: 50px;
+  border-radius: 50%;
+  border: 0px solid transparent;
   padding-block: -0px;
-  /* background: linear-gradient(110.65deg, #5230E1 13.77%, #EA77F5 44.24%, #F62947 65.26%, #FFBEAE 91.86%); */
-  /* box-shadow:0 0 100px 30px #5230E1,0 0 100px 50px #EA77F5,0 0 150px 50px #F62947, 0 0 150px 150px #FFBEAE,inset  0 0 100px 30px #5230E1,inset 0 0 100px 100px #EA77F5,inset 0 0 300px 300px #FFBEAE; */
-  /* color: rgba(#5230E1, green, blue, 1); */
-  /*-webkit-filter: blur(20px);
-  *//*-webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-   */
+  -webkit-border-radius:50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  -webkit-border-radius: 50%;
 }
 
 .socialMedia{
@@ -346,7 +351,6 @@ section .appScreenContainer{
   display: flex;
   gap: 16px;
   flex-direction: column;
-  /* margin-right: 90px; */
   margin-bottom: 37px;
   font-family: 'Inter';
   font-style: normal;
@@ -359,12 +363,9 @@ section .appScreenContainer{
   color: #FFFFFF;
 }
 footer{
-  /* position: relative; */
-  /* bottom: -10vh; */
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: column; */
-  /* width: 100vw; */
+  border: 1px solid transparent;
   justify-content: space-between;
   align-items: flex-end;
   font-family: 'Prompt';
@@ -376,16 +377,15 @@ footer{
   overflow: hidden;
   color: #FFFFFF;
   padding-inline: 5%;
-  /* background-color: red; */
 }
 
 .socialIcons{
   display: flex;
-  /* position: relative; */
   gap: 40px;
-  /* background-color: red; */
   margin-bottom: 30px;
 }
+
+
 
 
 /* PRIVACY DESKTOP STYLING */
@@ -394,11 +394,7 @@ footer{
   color: #FFFFFF;
   display: grid;
   grid-template-columns: 30% 70%;
-  /* column-gap: 300px; */
-  /* height: 20px; */
-  /* align-content: flex-start; */
   justify-items: flex-start;
-  /* justify-content: space-between; */
   align-items: flex-start;
   padding: 105px calc(50% - 85vw / 2);
 }
@@ -406,7 +402,7 @@ footer{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 22px;
+  /* gap: 22px; */
 }
 .privacyLeft > *{
   width: 100%;
@@ -435,17 +431,9 @@ footer{
   padding: 15px 10px;
 }
 .privacyLeft div.termsConditionActive,.privacyLeft div.privacyActive {
-  border-bottom: 5px solid var(--accent-color);
+  border-left: 5px solid var(--accent-color);
 }
-.privacyLeft a{
-  font-family: 'Prompt';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  /* margin-bottom: 50px; */
-  /* background-color: red; */
-  text-align: center;
-  }
+
 
 h2{
   font-family: 'Ubuntu';
@@ -465,9 +453,6 @@ font-weight: 400;
 font-size: 20px;
 line-height: 24px;
 }
-.termsCondition{
-
-}
 
 
 
@@ -477,11 +462,7 @@ line-height: 24px;
   footer{
     padding-inline: 10px;
   }
-  .socialMedia{
-    /* margin-bottom: 10px; */
-  }
   .socialIcons{
-    /* margin-left: 20px; */
     margin-bottom: 10px;
     gap: 10px;
   }
@@ -598,7 +579,6 @@ font-size: 16px;
 line-height: 24px;
 }
 .formContainer{
-  /* position: relative; */
   width: 100%;
   margin: 10px 0px;
 }
@@ -638,13 +618,11 @@ input::placeholder {
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
-  /* text-align: center; */
 }
 
 form input[type=submit], form input[type=button]{
   color: #212121;
   position: absolute;
-  /* top: 61%; */
   bottom: 0px;
   right: 0%;
   height: 38px;
@@ -681,7 +659,6 @@ form input[type=submit], form input[type=button]{
 }
 
 .subscribersImage img{
-  /* position: absolute; */
   width: 29.13px;
   height: 29.13px;
 }
@@ -715,7 +692,6 @@ font-size: 18.2065px;
 
 section.appScreens{
   margin: 0 auto;
-  /* background-color: red; */
 }
 
 
@@ -723,12 +699,7 @@ section .appScreenContainer{
   display: flex;
   position: relative;
   z-index: 0;
-  /* justify-content: center; */
   margin: 0 auto;
-  /* align-items: center; */
-  /* width: 100%; */
-  /* width: 100vw; */
-  /* background-color: black; */
 }
 
 .appScreens img{
@@ -753,17 +724,37 @@ footer{
   padding-inline: 0%;
 }
 .socialMedia{
+  align-self: flex-start;
   text-align: center;
   order: 1;
   margin-bottom: 7px;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+  padding-left: 20px;
+}
+.socialMedia p{
+  text-align: left;
 }
 .privacy{
-  /* display: none; */
-  /* background-color: red; */
-  /* text-align: left; */
+  padding-left: 20px;
+  align-self: flex-start;
+  text-align: left;
+}
+.background-gradient::after{
+  content: "";
+  bottom:190px;
+  border: 10px solid transparent;
+  display: inline-block;
+  position: relative;
+  z-index: -5;
+  transform: scale(5, 4);
+  box-shadow:0 0 30px 20px #8f3b68,0 0 30px 30px #8f3b68, 0 0 20px 20px #633070;
+  border-radius: 70%;
+  -webkit-transform: scale(5, 4);
+  -moz-transform: scale(5, 4);
+  -ms-transform: scale(5, 4);
+  -o-transform: scale(5, 4);
 }
 
 .appScreenContainer div:nth-child(1){
@@ -772,23 +763,14 @@ footer{
   top: -13px;
   bottom: 0px;
   left:-91%;
-  /* width: 100%;
-  height: 100%; */
-  /* background-color: red; */
 }  
 
 .appScreenContainer div:nth-child(1) img{
   width: 410px;
-  /* height: 430px; */
 }
 .appScreenContainer div:nth-child(2){
  position: relative;
  z-index: 2;
- /* left: 5%; */
- /* width: 100%;
- height: 100%; */
- /* background-color: green; */
- /* margin: 0 auto; */
 }
 .appScreenContainer div:nth-child(2) img{
   height: 450px;
@@ -807,14 +789,15 @@ footer{
   gap: 40px;
   margin-bottom: 12px;
   order: 2;
-  /* margin: 0 auto;
-width: 200px; */
 }
 
 .socialIcons img{
   width: 24px;
   height: 24px; 
 }
+
+
+
 /* PRIVACY MOBILE STYLING */
 
 .privacyContainer{
@@ -822,20 +805,22 @@ width: 200px; */
   flex-direction: column;
   color: #FFFFFF;
   align-items: center;
-  /* background-color: red; */
-  padding: 0px calc(50% - 95vw / 2);
-  padding: auto 10px;
+  padding: 10px 22px;
 }
 .privacyLeft{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 10px;
-  /* margin: 30px auto; */
+  justify-content: space-between;
+  padding: 10px 0px;
+  gap: 22px;
+  /* background-color: red; */
+}
+.privacyLeft > *{
+  width: auto;
+  display: flex;
 }
 .privacyRight{
-  /* margin: 30px auto; */
-  padding:0px 22px;
+  /* padding:0px 10px; */
 }
 .termsCondition, .privacyPolicy{
   display: flex;
@@ -843,23 +828,27 @@ width: 200px; */
   justify-content: center;
   align-items:center ;
   margin: 0 auto;
-  /* padding:auto 20px; */
 }
 .termsConditionActive, .privacyActive{
+  font-weight: 700;
 }
+
 .privacyLeft a{
   font-family: 'Prompt';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 16px;
-  line-height: px;
-  padding: 0px 10px;
+  padding: 0px 0px;
 }
 .privacyLeft div.termsConditionActive,.privacyLeft div.privacyActive {
   padding-bottom: 5px;
   border-bottom: 5px solid var(--accent-color);
-  padding-inline: 10px;
-  /* box-shadow: 0px 1px #000000; */
+  border-left: 0px;
+  padding-left:10px;
+  /* width: calc(100% + 10px); */
+}
+.privacyLeft div.termsConditionActive a,.privacyLeft div.privacyActive a{
+  font-weight: 700;
 }
 h2{
   font-family: 'Ubuntu';
@@ -879,16 +868,13 @@ font-weight: 400;
 font-size: 20px;
 line-height: 24px;
 }
-.termsCondition{
 
-}
 }
 
 
 
 @media only screen and (max-width: 350px) {
   form input[type=submit], form input[type=button]{
-    /* background-color: red; */
     font-size: 12px;
   }
   .formContainer input[type=email]{
