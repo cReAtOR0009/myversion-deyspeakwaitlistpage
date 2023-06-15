@@ -8,7 +8,7 @@ import {navAnimation, loadercontainer, loadercontent} from '../animations';
 
 export default function HomeLayouts() {
 
-  const [loading, setloading] = useState(false)
+  const [loading, setloading] = useState(true)
   
   const setLoading = ()=>{
    let  timeloading =  setTimeout(() => {

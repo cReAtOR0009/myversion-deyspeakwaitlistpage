@@ -1,10 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useForm } from "react-hook-form";
-import OneSignal from 'react-onesignal';
+// import { useForm } from "react-hook-form";
+import OneSignal from "react-onesignal";
 
-import {closebtn, mascotfull } from '../assets'
+import { closebtn, mascotfull } from "../assets";
 import { textVariant, buttonVariants } from "../animations";
 
 export const CustomForm = () => {
@@ -12,27 +12,104 @@ export const CustomForm = () => {
   const [ShowSubmitbBtn, setShowSubmitbBtn] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const { register, handleSubmit, formState: { errors }, } = useForm({
-    defaultValues: {
-    fullName: "",
-    email: "",
-    },
-  });
+  const [emailValue, setemailValue] = useState("")
+  const [nameValue, setnameValue] = useState("")
 
+  // const setMailFunction = ()=> {
+  //  let email = e.target.value.email
+  //  console.log(email)
+  //   setemailValue(email)
+  // }
 
-  async function runOneSignal(data) {
-    console.log(data.fullName)
-    OneSignal.init({
-      appId: "01bb2897-f6e0-4c1e-8991-7c5dbdbff32a"
-    }).then(()=>{
-      OneSignal.sendTag("first_name", data.fullName).then(() => {
-        return setShowModal(true);
-        })
-    }) 
+  const doNothing = () => {
+
   }
 
-  const onSubmit =async (data) => {
-    return await runOneSignal(data)
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm({
+  //   defaultValues: {
+  //     fullName: "",
+  //     email: "",
+  //   },
+  // });
+
+  // const sendOptions = async () => {
+  //   let data = "testing@gmail.com"
+  //   try {
+
+  //     // const timedResponse = setTimeout
+  //     let email = data.email;
+  //   await OneSignal.init({
+  //     appId: "01bb2897-f6e0-4c1e-8991-7c5dbdbff32a",
+  //   }).then(() => {
+  //     console.log(data);
+  //     OneSignal.setEmail(data).then(function () {
+  //       OneSignal.sendTag("last_name", "tester1").then((response) => {
+  //         return setShowModal(true);
+  //       });
+  //     });
+  //   });
+  //   await OneSignal.setEmail(data.email).then(function (emailId) {
+  //     // Callback called when email have finished sending
+  //     console.log("emailId: ", emailId);
+  //   });
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+    
+  // };
+
+  // const checkOnesignal = async (data) => {
+  //   fetch("https://onesignal.com/api/v1/notifications", {
+  //     method: "POST",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       app_id: "01bb2897-f6e0-4c1e-8991-7c5dbdbff32a",
+  //       tags: {
+  //         first_name: data.fullName,
+  //       },
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       console.log(response);
+  //     });
+  // };
+
+  async function runOneSignal() {
+    let data = nameValue
+    console.log("data",data);
+   await OneSignal.init({
+      appId: "01bb2897-f6e0-4c1e-8991-7c5dbdbff32a",
+      // allowLocalhostAsSecureOrigin:true
+    });
+    OneSignal.showSlidedownPrompt()
+    // .then(async () => {
+    // await  OneSignal.sendTag("first_name", nameValue).then(() => {
+    //     return setShowModal(true);
+    //   });
+    // });
+  }
+
+
+  const onHandleTag = (data) => {
+    console.log('Tagging');
+    OneSignal.sendTag("last_name", data).then(() => {
+      console.log("Sent tag: " + data);
+    });
+  }
+
+  const onSubmit = async (data) => {
+    // return await onHandleTag()
+    return await onHandleTag(data);
+    // clearTimeout()
+    // return await sendOptions();
   };
 
   const handleView = async () => {
@@ -40,27 +117,42 @@ export const CustomForm = () => {
     setShowSubmitbBtn(true);
   };
 
-// modal popup
-  const Modal = ({showModal, setShowModal}) => {
-    return <>
-    {showModal && <div onClick={()=>setShowModal(false)} className="backdrop">
-      <div className="modal">
-       <img className="closebtn" src={closebtn} alt="close modal button" onClick={()=>setShowModal(false)} />
-       <div className="modalText">
-        <div className="modalImageContainer">
-          <img src={mascotfull} alt="" />
-        </div>
-        <h3>Thank you for joining our waitlist!</h3>
-        <p>Thank you again for your interest and trust in us. We can’t wait to welcome you to our community!</p>
-       </div>
-      </div>
-    </div>}
-    </>
-  }
-  useEffect(() => {
-   
-  });
+  // modal popup
+  const Modal = ({ showModal, setShowModal }) => {
+    return (
+      <>
+        {showModal && (
+          <div onClick={() => setShowModal(false)} className="backdrop">
+            <div className="modal">
+              <img
+                className="closebtn"
+                src={closebtn}
+                alt="close modal button"
+                onClick={() => setShowModal(false)}
+              />
+              <div className="modalText">
+                <div className="modalImageContainer">
+                  <img src={mascotfull} alt="" />
+                </div>
+                <h3>Thank you for joining our waitlist!</h3>
+                <p>
+                  Thank you again for your interest and trust in us. We can’t
+                  wait to welcome you to our community!
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+      </>
+    );
+  };
 
+  useEffect(() => {
+    OneSignal.init({
+      appId: "01bb2897-f6e0-4c1e-8991-7c5dbdbff32a"
+    });
+  }, []);
+  
   return (
     <div className="formContainer">
       <Modal showModal={showModal} setShowModal={setShowModal} />
@@ -71,28 +163,22 @@ export const CustomForm = () => {
         className="formContainer"
       >
         <form
-          action=""
-          method="post"
-          onSubmit={handleSubmit(onSubmit)}
-          // onSuccess={() => setShowModal(true)} 
-          onError={() => console.log("error")} // error response
+           onSubmit={e => e.preventDefault()}
         >
           <input
-            {...register("fullName", { required: true, maxLength: 100 })}
+            onChange={(e)=> setnameValue(e.target.value)}
             type="text"
             placeholder="full Name"
+            autoComplete="on"
             style={{ display: ShowSubmitbBtn ? "block" : "none" }}
           />
           <input
-            {...register("email", {
-              pattern: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
-              required: true,
-              maxLength: 40,
-            })}
+            onChange={(e)=> setemailValue(e.target.value)}
             type="email"
+            autoComplete="on"
             placeholder="Enter your email address"
           />
-
+      {/* <button onClick={onSubmit}>check</button> */}
           {ShowvalidateBtn && (
             <motion.input
               variants={buttonVariants}
@@ -115,6 +201,8 @@ export const CustomForm = () => {
               type="submit"
               value="join waitlist"
               className="subscribeBtn"
+
+              onClick={()=>onHandleTag(nameValue)}
             />
           )}
           {/* {errors.email && <span>This field is required</span>} */}
