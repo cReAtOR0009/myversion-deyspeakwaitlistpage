@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import OneSignal from 'react-onesignal';
 
-
 import {closebtn, mascotfull } from '../assets'
 import { textVariant, buttonVariants } from "../animations";
 
@@ -13,16 +12,6 @@ export const CustomForm = () => {
   const [ShowSubmitbBtn, setShowSubmitbBtn] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-
-
-  async function runOneSignal(tag) {
-   console.log("onsignal function start running");
-   await OneSignal.sendTag("tech", tag).then(() => {
-    console.log("onsignal function finished running")
-   })
-  }
-  
-
   const { register, handleSubmit, formState: { errors }, } = useForm({
     defaultValues: {
     fullName: "",
@@ -30,10 +19,20 @@ export const CustomForm = () => {
     },
   });
 
+
+  async function runOneSignal(data) {
+    console.log(data.fullName)
+    OneSignal.init({
+      appId: "01bb2897-f6e0-4c1e-8991-7c5dbdbff32a"
+    }).then(()=>{
+      OneSignal.sendTag("first_name", data.fullName).then(() => {
+        return setShowModal(true);
+        })
+    }) 
+  }
+
   const onSubmit =async (data) => {
-      setShowModal(true)
-     await runOneSignal(data)
-    return console.log( data);
+    return await runOneSignal(data)
   };
 
   const handleView = async () => {
@@ -59,9 +58,7 @@ export const CustomForm = () => {
     </>
   }
   useEffect(() => {
-    OneSignal.init({
-      appId: "01bb2897-f6e0-4c1e-8991-7c5dbdbff32a"
-    });
+   
   });
 
   return (
