@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Prompt&family=Ubuntu&display=swap');
+
+
+body{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.loaderContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 40vh;
+}
+
+.loaderContainer span{
+    color: var(--accent-color);
+    font-size: 180px;
+    letter-spacing: 10px;
+}
+
+@media only screen and (max-width: 640px) {
+    .loaderContainer span{
+        color: var(--accent-color);
+        font-size: 50px;
+        letter-spacing: 10px;
+    }
+}

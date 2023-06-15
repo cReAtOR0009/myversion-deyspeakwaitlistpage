@@ -1,44 +1,133 @@
-import React from 'react'
-import {useState, useEffect, useRef} from 'react'
-import { motion } from 'framer-motion'
-import { Link, NavLink, Outlet } from 'react-router-dom'
-import { mascot,deyspeaktext,avatar1,avatar2,avatar3,linkdnicon,instagramicon,twittericon,mobilescreen1,mobilescreen2,mobilescreen3, } from '../assets'
-import { textVariant, buttonVariants, animateImage, containerVariant,} from '../animations';
+import React from "react";
+import { motion } from "framer-motion";
 
+import {
+  socialIconContainer,
+  socialContainerContent,
+  termsAnimate,
+} from "../animations";
+import { NavLink, Outlet } from "react-router-dom";
+import {
+  linkdnicon,
+  instagramicon,
+  twittericon,
+  mobilescreen1,
+  mobilescreen2,
+  mobilescreen3,
+} from "../assets";
+import { imageContainer, screenImage } from "../animations";
 
 export default function Footer() {
   return (
     <footer>
-    <div className="socialMedia">
-    <div className="socialIcons">
-     <a href=""> <img src={twittericon} alt="deyspeak twitter icon" /></a>
-     <a href=""><img src={instagramicon} alt="deyspeak instagram icon" /></a> 
-      <a href=""><img src={linkdnicon} alt="deyspeak linkdn icon"/></a>
-    </div>
-      <p>2023.Deyspeak</p>
-    </div>
-    <section className="appScreens">
-      <div className="background-gradient">
-      <div className='appScreenContainer'>
+      <div className="socialMedia">
         <motion.div
-        className="appScreen">
-          <img src={mobilescreen1} alt="deyspeak mobilescreen1" />
+          className="socialIcons"
+          variants={socialIconContainer()}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.a
+            href=""
+            variants={socialContainerContent()}
+            whileHover={{
+              scale: [1, 2.2, 1.2, 1.1, 1, 2.2, 1.2, 1.3, 1],
+              transition: {
+                ease: "easeInOut",
+                duration: 1.2,
+                // yoyo:Infinity
+              },
+            }}
+          >
+            {" "}
+            <img src={twittericon} alt="deyspeak twitter icon" />
+          </motion.a>
+          <motion.a
+            href=""
+            variants={socialContainerContent()}
+            whileHover={{
+              scale: [1, 2.2, 1.2, 1.1, 1, 2.2, 1.2, 1.3, 1],
+              transition: {
+                ease: "easeInOut",
+                duration: 1.2,
+                yoyo: Infinity,
+              },
+            }}
+          >
+            <img src={instagramicon} alt="deyspeak instagram icon" />
+          </motion.a>
+          <motion.a
+            href=""
+            variants={socialContainerContent()}
+            whileHover={{
+              scale: [1, 2.2, 1.2, 1.1, 1, 2.2, 1.2, 1.3, 1],
+              transition: {
+                ease: "easeInOut",
+                duration: 1.2,
+                yoyo: Infinity,
+              },
+            }}
+          >
+            <img src={linkdnicon} alt="deyspeak linkdn icon" />
+          </motion.a>
         </motion.div>
-        <div className="appScreen">
-          <img src={mobilescreen2} alt="deyspeak mobilescreen2" />
-        </div>
-        <div className="appScreen">
-          <img src={mobilescreen3} alt="deyspeak mobilescreen3" />
-        </div>
+        <motion.p
+          variants={socialContainerContent()}
+          initial="hidden"
+          animate="show"
+        >
+          2023.Deyspeak
+        </motion.p>
       </div>
-      </div>
-     </section>
-    <div className="privacy">
-      <NavLink to="/policy/terms-and-condition">Terms and conditions</NavLink>
-      <NavLink to="/policy/privacy">privacy policy</NavLink>
-    </div>
-    <Outlet />
-  </footer>
- 
-  )
+      <section className="appScreens">
+        <div className="background-gradient">
+          <motion.div
+            className="appScreenContainer"
+            variants={imageContainer}
+            initial="hidden"
+            animate="show"
+          >
+            <motion.div
+              variants={screenImage(-400, -400)}
+              initial="hidden"
+              animate="show"
+              exit="exit"
+              className="appScreen"
+            >
+              <img src={mobilescreen1} alt="deyspeak mobilescreen1" />
+            </motion.div>
+            <motion.div className="appScreen">
+              <img src={mobilescreen2} alt="deyspeak mobilescreen2" />
+            </motion.div>
+            <motion.div
+              className="appScreen"
+              variants={screenImage(400, -400)}
+              initial="hidden"
+              animate="show"
+              exit="exit"
+            >
+              <img src={mobilescreen3} alt="deyspeak mobilescreen3" />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+      <motion.div
+        className="privacy"
+        variants={{ socialIconContainer }}
+        initial="hidden"
+        animate="show"
+      >
+        <motion.div variants={socialContainerContent()}>
+          <NavLink to="/policy/terms-and-condition">
+            Terms and conditions
+          </NavLink>
+        </motion.div>
+
+        <motion.div variants={socialContainerContent()}>
+          <NavLink to="/policy/privacy">privacy policy</NavLink>
+        </motion.div>
+      </motion.div>
+      <Outlet />
+    </footer>
+  );
 }

@@ -32,7 +32,7 @@ export const CustomForm = () => {
 
   const onSubmit =async (data) => {
       setShowModal(true)
-      runOneSignal(data)
+     await runOneSignal(data)
     return console.log( data);
   };
 

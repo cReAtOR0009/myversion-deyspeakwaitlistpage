@@ -23,7 +23,7 @@ export default function Navbar() {
         const seconds = Math.floor((distance % (1000 * 60) / (1000)))
   
         if(distance < 0){
-          clearInterval(interval.current)
+          clearInterval(interval)
         }
         else{
           setdaysLeft(days);

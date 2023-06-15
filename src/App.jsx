@@ -1,5 +1,6 @@
 import { createBrowserRouter, createRoutesFromChildren, Route, RouterProvider } from 'react-router-dom'
 import './App.css'
+import './loader.css'
 import Home from './pages/Home'
 import Privacy from './pages/Privacy'
 import HomeLayouts from "./layouts/HomeLayouts"
