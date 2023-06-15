@@ -8,19 +8,19 @@ export const loadercontainer = () => {
     show:{
       opacity:1,
       transition:{
-        type:"spring",
+        // type:"spring",
         when:"beforeChildren",
-        delayChildren:0.1,
+        // delayChildren:0.1,
         staggerChildren:.3
       }
     },
     exit:{
       opacity:0,
-      y:-200,
+      y:0,
       scale:15,
       transition:{
-        duration:1
-        // delay:.2
+        duration:.4,
+        // delay:.5
       }
     }
   }
@@ -39,10 +39,10 @@ export const loadercontent = () => {
       opacity:1,
       y:0,
       x:0,
-      scale:[1, 1.5, 6, 1],
+      scale:[1, 1.5, 6, 1,],
       transition:{
           type:"spring",
-          duration:.5,
+          duration:.3,
           ease:[0.6, 0.01, -0.05, 0.95]
       }
     }
@@ -50,15 +50,43 @@ export const loadercontent = () => {
 }
 
 
-export const mainContainer = ()=>{
+// NAV ANIMATION
+
+export const navAnimation = ()=> {
   return {
     hidden:{
-      opacity:0
+      opacity:0,
+      y:-200,
+      x:200,
+      scale:0
     },
     show:{
       opacity:1,
+      y:0,
+      x:0,
+      scale:[1, 1.5, 6, 1],
       transition:{
-          staggerChildren:1
+          type:"spring",
+          duration:.5,
+          ease:[0.6, 0.01, -0.05, 0.95],
+          delay:5
+      }
+    }
+  }
+}
+
+export const mainContainer = ()=>{
+  return {
+    hidden:{
+      opacity:0,
+      y:200
+    },
+    show:{
+      opacity:1,
+      y:0,
+      transition:{
+        // when:"beforeChildren",  
+        staggerChildren:1
       }
 
     }

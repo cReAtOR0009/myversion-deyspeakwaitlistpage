@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { Outlet } from 'react-router-dom'
 
 import Navbar from '../components/Navbar'
-import {loadercontainer, loadercontent} from '../animations';
+import {navAnimation, loadercontainer, loadercontent} from '../animations';
 
 
 export default function HomeLayouts() {
@@ -14,21 +14,21 @@ export default function HomeLayouts() {
    let  timeloading =  setTimeout(() => {
       setloading(true)
     return  clearTimeout(timeloading)
-    }, 4000);
+    }, 3500);
   }
- 
 
   useEffect(()=>{
      setLoading();
   });
 
   return (
+    // <AnimateSharedLayout>
     <AnimatePresence>
       {loading ?  
-     ( <motion.div>
+     ( <div>
       <Navbar />
       <Outlet />
-    </motion.div>)
+    </div>)
       
       :
       
@@ -67,5 +67,6 @@ export default function HomeLayouts() {
       </motion.div>)
       }
       </AnimatePresence>
+      // </AnimateSharedLayout> 
   )
 }

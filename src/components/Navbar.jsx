@@ -1,10 +1,10 @@
 import {useState, useEffect, useRef} from 'react'
 import { motion } from 'framer-motion'
-import { mascot,deyspeaktext,avatar1,avatar2,avatar3,linkdnicon,instagramicon,twittericon,mobilescreen1,mobilescreen2,mobilescreen3, } from '../assets'
-import { textVariant, buttonVariants, animateImage, containerVariant,} from '../animations';
+import { mascot,deyspeaktext} from '../assets'
+import {navAnimation,} from '../animations';
 
 
-export default function Navbar() {
+export default function Navbar () {
     const [daysLeft, setdaysLeft] = useState("00");
     const [hoursLeft, sethoursLeft] = useState("00");
     const [minutesLeft, setminutesLeft] = useState("00");
@@ -23,7 +23,7 @@ export default function Navbar() {
         const seconds = Math.floor((distance % (1000 * 60) / (1000)))
   
         if(distance < 0){
-          clearInterval(interval)
+          clearInterval(interval.current)
         }
         else{
           setdaysLeft(days);
@@ -42,9 +42,26 @@ export default function Navbar() {
   return (
     
     <motion.nav
-    initial={{ y: -250 }}
-    animate={{ y: -10 }}
-    transition={{ delay: 1, duration: 1, type: "spring", stiffness: 120 }}
+    initial={{ opacity:0,
+      y:-50,
+      x:0,
+      scale:0}}
+    animate={{
+      opacity:1,
+      y:0,
+      x:0,
+      scale:[1, 1.5, 6, 1],
+      transition:{
+          type:"spring",
+          stiffness: 120,
+          duration:.5,
+          ease:[0.6, 0.01, -0.05, 0.95],
+          delay:1
+      }
+    }}
+    // initial={{ y: -250 }}
+    // animate={{ y: -10 }}
+    // transition={{ delay: 1, duration: 1, type: "spring", stiffness: 120 }}
    >
      <div className='container' id='navHome'>
        <div className="mascot">
