@@ -363,6 +363,9 @@ section .appScreenContainer{
 .privacy a{
   color: #FFFFFF;
 }
+.privacy div {
+  margin-top: 10px;
+}
 footer{
   display: flex;
   flex-wrap: wrap;
@@ -723,6 +726,8 @@ footer{
   color: #FFFFFF;
   padding-block: 0px;
   padding-inline: 0%;
+  /* gap:10px; */
+  /* background-color: red; */
 }
 .socialMedia{
   align-self: flex-start;
@@ -733,6 +738,7 @@ footer{
   font-size: 16px;
   line-height: 24px;
   padding-left: 20px;
+  margin-top: 0px;
 }
 .socialMedia p{
   text-align: left;
@@ -805,7 +811,7 @@ footer{
   display: flex;
   flex-direction: column;
   color: #FFFFFF;
-  align-items: center;
+  align-items: flex-start;
   padding: 10px 22px;
 }
 .privacyLeft{
@@ -869,6 +875,19 @@ font-weight: 400;
 font-size: 20px;
 line-height: 24px;
 }
+.privacy {
+  margin-bottom: 10px;
+}
+.privacy div {
+  margin-top: 10px;
+  /* background-color: red; */
+  /* margin-bottom: 0px; */
+}
+
+ /* footer div.socialMedia{
+  padding-left: 0px ;
+  background-color: red;
+} */
 
 }
 

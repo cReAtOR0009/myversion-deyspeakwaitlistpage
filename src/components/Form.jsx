@@ -151,7 +151,7 @@ export const CustomForm = () => {
     OneSignal.init({
       appId: "01bb2897-f6e0-4c1e-8991-7c5dbdbff32a"
     });
-  });
+  }, []);
   
   return (
     <div className="formContainer">

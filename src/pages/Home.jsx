@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Main />
-      <Footer />
+      <Footer displayMobileScreen={true} />
     </>
   )
 }

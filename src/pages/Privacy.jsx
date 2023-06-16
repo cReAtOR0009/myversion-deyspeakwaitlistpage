@@ -1,28 +1,43 @@
 import React from "react";
-import Navbar from "../components/Navbar"
-import { mascot,deyspeaktext,avatar1,avatar2,avatar3,linkdnicon,instagramicon,twittericon,mobilescreen1,mobilescreen2,mobilescreen3, } from '../assets'
-import { textVariant } from "../animations";
+import {linkdnicon,instagramicon,twittericon,} from '../assets'
+import { activeTab, mainContainer2, textVariant2 } from "../animations";
 
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
+import Footer from "../components/Footer";
 
 
 export default function Privacy() {
   return (
-    <div className="privacyContainer">
-      <div className="privacyLeft">
-        <div className="termsconditionLink">
+    <motion.div className="privacyContainer">
+      <motion.div className="privacyLeft"
+      variants={mainContainer2()}
+      initial="hidden"
+      animate="show">
+        <motion.div className="termsconditionLink"
+          variants={textVariant2()}
+          >
           <NavLink to="/policy/terms-and-condition">Terms and Conditions</NavLink>
-        </div>
-        <div className="privacyActive">
+        </motion.div>
+        <motion.div className="privacyActive"
+          variants={activeTab()}
+        >
           <NavLink to="/policy/privacy">Privacy Policy</NavLink>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       <div className="privacyRight">
-         <div className="privacyPolicy">
-          <h2>Privacy Policy</h2>
-          <p>
+         <motion.div className="privacyPolicy"
+         variants={mainContainer2()}
+         initial="hidden"
+         animate="show"
+         >
+          <motion.h2
+          variants={textVariant2()}
+          >Privacy Policy</motion.h2>
+          <motion.p
+          variants={textVariant2()}
+          >
             Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
             turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
             nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
@@ -33,8 +48,10 @@ export default function Privacy() {
             Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum
             lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in
             elementum tellus.
-          </p>{" "}
-          <p>
+          </motion.p>{" "}
+          <motion.p
+          variants={textVariant2()}
+          >
             Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
             turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
             nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
@@ -45,8 +62,10 @@ export default function Privacy() {
             Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum
             lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in
             elementum tellus.
-          </p>{" "}
-          <p>
+          </motion.p>{" "}
+          <motion.p
+          variants={textVariant2()}
+          >
             Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
             turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
             nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
@@ -57,17 +76,10 @@ export default function Privacy() {
             Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum
             lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in
             elementum tellus.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </div>
-      <div className="socialMedia">
-    <div className="socialIcons">
-     <a href=""> <img src={twittericon} alt="deyspeak twitter icon" /></a>
-     <a href=""><img src={instagramicon} alt="deyspeak instagram icon" /></a> 
-      <a href=""><img src={linkdnicon} alt="deyspeak linkdn icon"/></a>
-    </div>
-      <p>2023.Deyspeak</p>
-    </div>
-    </div>
+      <Footer />
+    </motion.div>
   );
 }

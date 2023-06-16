@@ -1,10 +1,13 @@
 import {useState, useEffect, useRef} from 'react'
+import { ScrollRestoration } from 'react-router-dom';
 import { motion } from 'framer-motion'
 import { mascot,deyspeaktext} from '../assets'
 import {navAnimation,} from '../animations';
 
 
 export default function Navbar () {
+
+
     const [daysLeft, setdaysLeft] = useState("00");
     const [hoursLeft, sethoursLeft] = useState("00");
     const [minutesLeft, setminutesLeft] = useState("00");
@@ -40,7 +43,8 @@ export default function Navbar () {
       }
     })
   return (
-    
+    <>
+    <ScrollRestoration />
     <motion.nav
     initial={{ opacity:0,
       y:-50,
@@ -87,5 +91,6 @@ export default function Navbar () {
        </div>
      </div>
    </motion.nav>
+   </>
   )
 }

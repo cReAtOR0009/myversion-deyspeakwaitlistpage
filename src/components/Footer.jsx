@@ -17,7 +17,7 @@ import {
 } from "../assets";
 import { imageContainer, screenImage } from "../animations";
 
-export default function Footer() {
+export default function Footer({displayMobileScreen}) {
   return (
     <footer>
       <div className="socialMedia">
@@ -29,6 +29,7 @@ export default function Footer() {
         >
           <motion.a
             href="https://twitter.com/DeySpeakApp?t=SPJ3YsRNDD2IjlSJLBuxyw&s=09"
+            target="_blank"
             variants={socialContainerContent()}
             whileHover={{
               scale: [1, 2.2, 1.2, 1.1, 1, 2.2, 1.2, 1.3, 1],
@@ -44,6 +45,7 @@ export default function Footer() {
           </motion.a>
           <motion.a
             href="https://instagram.com/deyspeak?igshid=ZDc4ODBmNjlmNQ=="
+            target="_blank"
             variants={socialContainerContent()}
             whileHover={{
               scale: [1, 2.2, 1.2, 1.1, 1, 2.2, 1.2, 1.3, 1],
@@ -58,6 +60,7 @@ export default function Footer() {
           </motion.a>
           <motion.a
             href="https://www.linkedin.com/company/jumoh/"
+            target="_blank"
             variants={socialContainerContent()}
             whileHover={{
               scale: [1, 2.2, 1.2, 1.1, 1, 2.2, 1.2, 1.3, 1],
@@ -79,7 +82,7 @@ export default function Footer() {
           2023.Deyspeak
         </motion.p>
       </div>
-      <section className="appScreens">
+      <section className="appScreens"  style={{display:`${displayMobileScreen ? "initial":"none"}`}}>
         <div className="background-gradient">
           <motion.div
             className="appScreenContainer"
@@ -116,14 +119,29 @@ export default function Footer() {
         variants={{ socialIconContainer }}
         initial="hidden"
         animate="show"
-      >
-        <motion.div variants={socialContainerContent()}>
+        style={{display:`${displayMobileScreen ? "initial":"none"}`}}>
+        <motion.div variants={socialContainerContent()}
+         whileHover={{
+          scale: [1, 1.05, 1],
+          transition: {
+            ease: "easeInOut",
+            duration: .6,
+          },
+        }}
+        >
           <NavLink to="/policy/terms-and-condition">
             Terms and conditions
           </NavLink>
         </motion.div>
 
-        <motion.div variants={socialContainerContent()}>
+        <motion.div variants={socialContainerContent()}
+        whileHover={{
+          scale: [1, 1.05, 1],
+          transition: {
+            ease: "easeInOut",
+            duration: .6,
+          },
+        }}>
           <NavLink to="/policy/privacy">privacy policy</NavLink>
         </motion.div>
       </motion.div>

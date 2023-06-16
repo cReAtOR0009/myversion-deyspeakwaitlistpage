@@ -17,7 +17,7 @@ export const loadercontainer = () => {
     exit:{
       opacity:0,
       y:0,
-      scale:15,
+      scale:10,
       transition:{
         duration:.4,
         // delay:.5
@@ -117,6 +117,72 @@ export const textVariant = (delay) => {
     }
   }
   };
+
+  export const mainContainer2 = ()=>{
+    return {
+      hidden:{
+        opacity:0,
+        y:0
+      },
+      show:{
+        opacity:1,
+        y:0,
+        transition:{
+          // when:"beforeChildren",  
+          staggerChildren:.5
+        }
+      },
+      exit:{
+        opacity:0,
+        y:0,
+        scale:15,
+        transition:{
+          duration:.4,
+        }
+      }
+    }
+  }
+  export const textVariant2 = () => {
+    return {
+      hidden: {
+        x:0,
+        opacity: 0,
+      },
+      show: {
+        x:[80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 15, 10, 5, 0 ],
+        opacity: 1,
+        transition: {
+          type: "linear",
+          duration: .5,
+        },
+      },
+      exit:{
+        y:200,
+        transition: {
+          type: "linear",
+          duration: .5,
+      }
+    }
+  }
+  };
+
+  export const activeTab = ()=>{
+    return {
+      hidden:{
+        x:40,
+        opacity:0
+      },
+      show:{
+        x:[80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 15, 10, 5, 0 ],
+        opacity:1
+      },
+      exit:{
+        x:0,
+        opacity:0,
+      },
+    }
+  }
+
   export const imageContainer = {
     show:{
       transition:{
