@@ -28,7 +28,7 @@ export default function Footer() {
           animate="show"
         >
           <motion.a
-            href=""
+            href="https://twitter.com/DeySpeakApp?t=SPJ3YsRNDD2IjlSJLBuxyw&s=09"
             variants={socialContainerContent()}
             whileHover={{
               scale: [1, 2.2, 1.2, 1.1, 1, 2.2, 1.2, 1.3, 1],
@@ -43,7 +43,7 @@ export default function Footer() {
             <img src={twittericon} alt="deyspeak twitter icon" />
           </motion.a>
           <motion.a
-            href=""
+            href="https://instagram.com/deyspeak?igshid=ZDc4ODBmNjlmNQ=="
             variants={socialContainerContent()}
             whileHover={{
               scale: [1, 2.2, 1.2, 1.1, 1, 2.2, 1.2, 1.3, 1],
@@ -57,7 +57,7 @@ export default function Footer() {
             <img src={instagramicon} alt="deyspeak instagram icon" />
           </motion.a>
           <motion.a
-            href=""
+            href="https://www.linkedin.com/company/jumoh/"
             variants={socialContainerContent()}
             whileHover={{
               scale: [1, 2.2, 1.2, 1.1, 1, 2.2, 1.2, 1.3, 1],
