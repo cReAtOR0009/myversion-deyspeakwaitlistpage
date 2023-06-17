@@ -9,6 +9,11 @@ body{
   font-family: 'Ubuntu', Courier, monospace;
 }
 
+td{
+  font-size: 40px;
+  /* width: 150px; */
+  color: var(--accent-color);
+}
 
 /* MODAL STYLING */
 .backdrop {
@@ -91,7 +96,8 @@ nav .container{
 }
 
 .launchTimeSection{
-  display: flex;
+  /* display: flex; */
+  display:none;
   flex-direction: column;
   gap: 3.64px;
   justify-content: center;

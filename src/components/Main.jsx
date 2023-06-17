@@ -15,7 +15,7 @@ export default function Main() {
         variants={textVariant(.3)}
         initial="hidden"
         animate="show"
-        >UNLOCK THE WORLD OF LANGUAGE LEARNING</motion.h2>
+        >Bridging Cultures, One Word at a Time.</motion.h2>
         <motion.p
          variants={textVariant(.5)}
          initial="hidden"
