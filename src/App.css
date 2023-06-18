@@ -418,9 +418,9 @@ footer{
   width: 100%;
   display: flex;
 }
-.privacyRight{
+/* .privacyRight{
 
-}
+} */
 .termsCondition, .privacyPolicy{
   display: flex;
   flex-direction: column;
@@ -832,9 +832,8 @@ footer{
   width: auto;
   display: flex;
 }
-.privacyRight{
-  /* padding:0px 10px; */
-}
+/* .privacyRight{
+} */
 .termsCondition, .privacyPolicy{
   display: flex;
   flex-direction: column;

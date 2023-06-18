@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Prompt&family=Ubuntu&display=swap');
 
 
-body{
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-}
 table {
     position:fixed;
     top:0;
@@ -19,10 +14,7 @@ tr{
     width: 100vw;
     /* background-color: green; */
 }
-tr:nth-child(3n -2){
-    /* background-color: green; */
 
-}
 table td{
     width: 30px;
     height: 40px;
@@ -42,8 +34,8 @@ table td{
 
 .loaderContainer .loaderMaintext {
     position: absolute;
-    bottom: 50%;
-    background-color: var(--color-dominant);
+    bottom: 40%;
+    background-color: var(--color-loader);
     border-radius: 20px;
     z-index: 10;
 

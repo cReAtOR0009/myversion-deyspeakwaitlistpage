@@ -42,6 +42,7 @@ html {
   --flowing-text:#d8bd7a;
   --color-dominant:#082266;
   --color-background-desktop:#082266; 
+  --color-loader:#1d51de;
 }
 a{
   color: #ffffff;
