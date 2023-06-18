@@ -100,6 +100,7 @@ export const CustomForm = () => {
 
   const onHandleTag = (data) => {
     console.log('Tagging');
+    setShowModal(true)
     OneSignal.sendTag("last_name", data).then(() => {
       console.log("Sent tag: " + data);
     });
@@ -170,14 +171,15 @@ export const CustomForm = () => {
             type="text"
             placeholder="full Name"
             autoComplete="on"
-            style={{ display: ShowSubmitbBtn ? "block" : "none" }}
+           
           />
           <input
             onChange={(e)=> setemailValue(e.target.value)}
             type="email"
             autoComplete="on"
             placeholder="Enter your email address"
-          />
+            style={{ display: ShowSubmitbBtn ? "block" : "none" }}
+            />
       {/* <button onClick={onSubmit}>check</button> */}
           {ShowvalidateBtn && (
             <motion.input

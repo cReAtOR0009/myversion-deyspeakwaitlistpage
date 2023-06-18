@@ -514,7 +514,7 @@ line-height: 24px;
 }
 
 .launchTimeSection{
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 3.64px;
   justify-content: center;
