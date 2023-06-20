@@ -1,6 +1,7 @@
 import {useState, useEffect, useRef} from 'react'
 import { ScrollRestoration } from 'react-router-dom';
 import { motion } from 'framer-motion'
+import { NavLink } from 'react-router-dom';
 import { mascot,deyspeaktext} from '../assets'
 import {navAnimation,} from '../animations';
 
