@@ -69,8 +69,10 @@ export default function Navbar () {
    >
      <div className='container' id='navHome'>
        <div className="mascot">
-         <img src={mascot} alt="" className="mascotImage" />
-         <img src={deyspeaktext} alt="despeak logo text" className="mascotTextImage" />
+       <NavLink to="/">
+           <img src={mascot} alt="" className="mascotImage" />
+           <img src={deyspeaktext} alt="despeak logo text" className="mascotTextImage" />
+         </NavLink>
        </div>
        <div className="launchTimeSection">
          <div className="launchtext">Launch Timer</div>
