@@ -9,11 +9,6 @@ body{
   font-family: 'Ubuntu', Courier, monospace;
 }
 
-td{
-  font-size: 40px;
-  /* width: 150px; */
-  color: var(--accent-color);
-}
 
 /* MODAL STYLING */
 .backdrop {
@@ -96,8 +91,7 @@ nav .container{
 }
 
 .launchTimeSection{
-  /* display: flex; */
-  display:none;
+  display: none;
   flex-direction: column;
   gap: 3.64px;
   justify-content: center;
@@ -166,6 +160,7 @@ main .mainText{
   font-weight: 700;
   font-size: 40px;
   line-height: 46px;
+  text-align: center;
 }
 
 .mainText p{
@@ -412,22 +407,28 @@ footer{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* gap: 22px; */
 }
 .privacyLeft > *{
   width: 100%;
   display: flex;
 }
-/* .privacyRight{
-
-} */
+.privacyRight{
+  /* text-align: left; */
+  /* background-color: red; */
+}
 .termsCondition, .privacyPolicy{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items:center ;
+  align-items:flex-start ;
   margin: 0 auto;
 }
+/* .termsCondition div {
+  display: flex;
+  background-color: red;
+  margin-bottom: 30px;
+  flex-direction: column !important;
+} */
 .termsConditionActive, .privacyActive{
   font-weight: 700;
 }
@@ -445,23 +446,51 @@ footer{
 }
 
 
-h2{
+div h2{
   font-family: 'Ubuntu';
   font-style: normal;
   font-weight: 400;
   font-size: 40px;
   line-height: 42px;
-  text-align: center;
+  /* text-align: center; */
+  /* color: red; */
+  /* background-color: red; */
+  margin-inline: 0px;
   margin-bottom: 30px;
 
 }
+
+div h4 {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 20px;
+  /* text-align: right !important; */
+  margin-bottom: 10px;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color);
+}
+h6 {
+  font-size: 20px;
+  font-weight: 100;
+}
+
 .privacyPolicy p, .termsCondition p{
   margin-bottom: 30px;
   font-family: 'Ubuntu';
+  text-align: left;
+
 font-style: normal;
 font-weight: 400;
 font-size: 20px;
 line-height: 24px;
+}
+.privacyPolicy h4 {
+  text-align: left;
+  line-height: 20px
+}
+.termsCondition p+p {
+  margin-bottom: 0px;
 }
 
 
@@ -515,7 +544,7 @@ line-height: 24px;
 
 .launchTimeSection{
   display: none;
-  flex-direction: column;
+   flex-direction: column;
   gap: 3.64px;
   justify-content: center;
   align-items: center;
@@ -832,8 +861,17 @@ footer{
   width: auto;
   display: flex;
 }
-/* .privacyRight{
-} */
+.privacyRight h2{
+font-size: 25px;
+line-height: 30px;
+text-align: center;
+}
+.privacyRight div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .termsCondition, .privacyPolicy{
   display: flex;
   flex-direction: column;
@@ -868,7 +906,7 @@ h2{
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
-  text-align: center;
+  text-align: left;
   margin-block: 30px;
 
 }
@@ -882,6 +920,9 @@ line-height: 24px;
 }
 .privacy {
   margin-bottom: 10px;
+}
+.privacyPolicy h4 {
+  text-align: left;
 }
 .privacy div {
   margin-top: 10px;

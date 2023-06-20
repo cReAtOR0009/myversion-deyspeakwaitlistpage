@@ -317,6 +317,23 @@ export const buttonVariants= {
     }
   }
 
+  export const buttonVariants2= {
+    hidden:{ y: -80 },
+    show:{ y: 0 ,
+      transition:{ delay: 0, duration: 0.5,},
+    },
+  hover:{
+    scale:1.1, 
+    textShadow:'0px 0px 8px rgb(255, 255, 255)',
+   boxShadow:'0px 0px 8px rgb(8, 34, 102)',
+   transition:{
+    duration:.3,
+    yoyo:Infinity
+   }
+  }
+}
+
+
   export const animateImage = () => {
     return {
       hidden: {
