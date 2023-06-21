@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import OneSignal from "react-onesignal";
 
 import { closebtn, mascotfull } from "../assets";
-import { textVariant, buttonVariants, buttonVariants2, textVariant2 } from "../animations";
+import { textVariant, buttonVariants, buttonVariants2,  } from "../animations";
 
 export const CustomForm = () => {
   const [ShowvalidateBtn, setvalidateBtn] = useState(true);
@@ -19,20 +19,22 @@ export const CustomForm = () => {
   const [fullNameInput, setfullNameInput] = useState("");
   const [modalName, setModalName] = useState("")
 
-
+  // console.log(fullNameInput)
+  // console.log(emailValue)
 
   const url = new URL(
     "https://api.sender.net/v2/subscribers"
 );
   let headers = {
-      "Authorization": `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTNiM2Q0YWM0MDdlMjA2MjM5M2QzNWFlYTgzOTIxYTgxNjYyM2RkOGI3YTM3MWEyMzU4ZjVjYWNmY2ZjYWFiOTQ2N2E3NDczYjBjODI2MjIiLCJpYXQiOiIxNjg3MTMwMTg4LjkxNjkxMiIsIm5iZiI6IjE2ODcxMzAxODguOTE2OTE2IiwiZXhwIjoiNDg0MDczMDE4OC45MTM4MTUiLCJzdWIiOiI3MzcxNzgiLCJzY29wZXMiOltdfQ.sRL7i6UelzwR8UMyP_xfAm8WkviPW1MUi1H_3ZZszEcKLD874SzK5Bh0isGa0sPegN_BSvpX0zexWUelBJevZw`,
+      "Authorization": `Bearer ${import.meta.env.VITE_APP_TOKER}`,
       "Content-Type": "application/json",
       "Accept": "application/json",
   };
 
 
 const onSubmit =async () => {
-  let formFullname =fullNameInput.split(' ')
+  let trimmedName = fullNameInput.trim();
+  let formFullname =trimmedName.split(' ');
   const firstName =formFullname[0];
   const lastName = formFullname[formFullname.length - 1];
 
@@ -57,6 +59,7 @@ const onSubmit =async () => {
       setmodalError(false)
       setShowModal(true)
       setModalContent(firstName)
+      clearFields()
 
     })
     .catch((error) => {
@@ -79,11 +82,20 @@ const onSubmit =async () => {
 
     })
 }
-
+  const clearFields = () => {
+    setemailValue("")
+    setfullNameInput("")
+  }
 
   const showEmailField = async () => {
-    setvalidateBtn(false);
-    setShowSubmitbBtn(true);
+    if(fullNameInput==''){
+      setShowSubmitbBtn(false)
+      setvalidateBtn(true)
+    }
+    else {
+      setvalidateBtn(false);
+      setShowSubmitbBtn(true);
+    }
   };
 
   // modal popup
@@ -123,6 +135,10 @@ const onSubmit =async () => {
     );
   };
 
+  useEffect(() => {
+    showEmailField()
+  },[fullNameInput])
+
   return (
     <div className="formContainer">
       <Modal showModal={showModal} setShowModal={setShowModal} modalContent={modalName} />
@@ -138,6 +154,7 @@ const onSubmit =async () => {
           <input
             onChange={(e)=> {setfullNameInput(e.target.value); showEmailField()} }
             type="text"
+            value={fullNameInput}
             placeholder="Full Name"
             autoComplete="on"
             required
@@ -152,6 +169,7 @@ const onSubmit =async () => {
             type="email"
             autoComplete="on"
             placeholder="Enter your email address"
+            value={emailValue}
             required
             style={{ display: ShowSubmitbBtn ? "block" : "none" }}
           />
@@ -173,6 +191,8 @@ const onSubmit =async () => {
               initial="hidden"
               animate="show"
               whileHover="hover"
+              exit="exit"
+
               label="subscribe"
               type="submit"
               value="Join Waitlist"
