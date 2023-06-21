@@ -171,11 +171,12 @@ main .mainText{
   line-height: 36.29px;
 }
 .formContainer{
-  position: relative;
+  /* position: relative; */
   text-align: center;
   margin: 20px auto;
 }
 .formContainer form{
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 30px;
