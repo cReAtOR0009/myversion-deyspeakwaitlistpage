@@ -1,119 +1,69 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-// import { useForm } from "react-hook-form";
+import { calcLength, motion } from "framer-motion";
 import OneSignal from "react-onesignal";
 
 import { closebtn, mascotfull } from "../assets";
-import { textVariant, buttonVariants, buttonVariants2,  } from "../animations";
+import { textVariant, buttonVariants, buttonVariants2 } from "../animations";
 
-export const CustomForm = () => {
+export const CustomForm = ( {onSubmit}) => {
   const [ShowvalidateBtn, setvalidateBtn] = useState(true);
   const [ShowSubmitbBtn, setShowSubmitbBtn] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalError, setmodalError] = useState(false);
   const [modalContent, setModalContent] = useState("");
-  const [errorContent, setErrorContent] = useState("")
+  const [errorContent, setErrorContent] = useState("");
 
   const [emailValue, setemailValue] = useState("");
   const [fullNameInput, setfullNameInput] = useState("");
-  const [modalName, setModalName] = useState("")
-
-  // console.log(fullNameInput)
-  // console.log(emailValue)
-
-  const url = new URL(
-    "https://api.sender.net/v2/subscribers"
-);
-  let headers = {
-      "Authorization": `Bearer ${import.meta.env.VITE_APP_TOKER}`,
-      "Content-Type": "application/json",
-      "Accept": "application/json",
-  };
+  const [modalName, setModalName] = useState("");
 
 
-const onSubmit =async () => {
-  let trimmedName = fullNameInput.trim();
-  let formFullname =trimmedName.split(' ');
-  const firstName =formFullname[0];
-  const lastName = formFullname[formFullname.length - 1];
-
-  let data = {
-    "email":`${emailValue}`,
-    "firstname": `${firstName}`,
-    "lastname": `${lastName}`,
-    "waitlist": `waitlist`,
-    "trigger_automation": false
-  };
-    fetch(url, {
-      method: "POST",
-      headers,body: JSON.stringify(data)
-    }).then(async (response) => {
- 
-      if (!response.ok) {
-        const text = await response.text()
-        throw new Error(text)
-      }
-      
-      setModalName(firstName)
-      setmodalError(false)
-      setShowModal(true)
-      setModalContent(firstName)
-      clearFields()
-
-    })
-    .catch((error) => {
-
-      try {
-      setModalName();
-      setmodalError(true);
-      setErrorContent(`${JSON.parse(error.toString().slice(6)).message}`)
-      setShowModal(true);
-      setModalContent();
-      // setErrorContent(`${JSON.parse(error.toString().slice(6)).message}`)
-        // console.log(JSON.parse(error.toString().slice(6)).message)
-        // console.log(JSON.parse(error.toString().slice(6)))
-      } catch (err) {
-        setmodalError(true);
-        setShowModal(true);
-        setErrorContent(`unidentified error, pls try again ${err}`)
-      }
-      return
-
-    })
-}
   const clearFields = () => {
-    setemailValue("")
-    setfullNameInput("")
-  }
+    setemailValue("");
+    setfullNameInput("");
+  };
 
   const showEmailField = async () => {
-    if(fullNameInput==''){
-      setShowSubmitbBtn(false)
-      setvalidateBtn(true)
-    }
-    else {
+    if (fullNameInput == "") {
+      setShowSubmitbBtn(false);
+      setvalidateBtn(true);
+    } else {
       setvalidateBtn(false);
       setShowSubmitbBtn(true);
     }
   };
 
+    const handleSubmit = () => {
+     onSubmit(
+      fullNameInput,
+      emailValue,
+      setModalName,
+      setmodalError,
+      setErrorContent,
+      setShowModal,
+      setModalContent,
+      clearFields,
+      )
+    }
   // modal popup
-  const Modal = ({ }) => {
+  const Modal = ({}) => {
     return (
       <>
         {showModal && (
           <div onClick={() => setShowModal(false)} className="backdrop">
             <div className="modal">
-              {modalError==true ?( <div className="error">
+              {modalError == true ? (
+                <div className="error">
                   <p>{errorContent}</p>
-              </div>):
-                (<>
+                </div>
+              ) : (
+                <>
                   <img
-                  className="closebtn"
-                  src={closebtn}
-                  alt="close modal button"
-                  onClick={() => setShowModal(false)}
+                    className="closebtn"
+                    src={closebtn}
+                    alt="close modal button"
+                    onClick={() => setShowModal(false)}
                   />
                   <div className="modalText">
                     <div className="modalImageContainer">
@@ -121,13 +71,12 @@ const onSubmit =async () => {
                     </div>
                     <h3>Thank you {modalContent} for joining our waitlist!</h3>
                     <p>
-                      Thank you again for your interest and trust in us. We can’t
-                      wait to welcome you to our community!
+                      Thank you again for your interest and trust in us. We
+                      can’t wait to welcome you to our community!
                     </p>
                   </div>
-                </>)
-              }
-            
+                </>
+              )}
             </div>
           </div>
         )}
@@ -136,23 +85,34 @@ const onSubmit =async () => {
   };
 
   useEffect(() => {
-    showEmailField()
-  },[fullNameInput])
+    showEmailField();
+  }, [fullNameInput]);
 
+  // console.log("form rerendered")
   return (
     <div className="formContainer">
-      <Modal showModal={showModal} setShowModal={setShowModal} modalContent={modalName} />
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        modalContent={modalName}
+      />
       <motion.div
         variants={textVariant(0.7)}
         initial="hidden"
         animate="show"
         className="formContainer"
       >
-        <form 
-           onSubmit={e => {e.preventDefault(); return onSubmit()}}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            return handleSubmit();
+          }}
         >
           <input
-            onChange={(e)=> {setfullNameInput(e.target.value); showEmailField()} }
+            onChange={(e) => {
+              setfullNameInput(e.target.value);
+              showEmailField();
+            }}
             type="text"
             value={fullNameInput}
             placeholder="Full Name"
@@ -160,12 +120,17 @@ const onSubmit =async () => {
             required
           />
           <motion.input
-            onChange={(e)=> setemailValue(e.target.value)}
+            onChange={(e) => setemailValue(e.target.value)}
             initial={{ y: -150 }}
-            animate={{ y: 0,
-              transition:{ delay: 2, duration: 2, type: "spring", stiffness: 120 }
+            animate={{
+              y: 0,
+              transition: {
+                delay: 2,
+                duration: 2,
+                type: "spring",
+                stiffness: 120,
+              },
             }}
-
             type="email"
             autoComplete="on"
             placeholder="Enter your email address"
@@ -192,13 +157,11 @@ const onSubmit =async () => {
               animate="show"
               whileHover="hover"
               exit="exit"
-
               label="subscribe"
               type="submit"
               value="Join Waitlist"
               className="subscribeBtn"
 
-              // onClick={()=>onSubmit()}
             />
           )}
         </form>

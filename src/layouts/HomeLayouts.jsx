@@ -100,7 +100,6 @@ export default function HomeLayouts() {
  "z",
  "z̠",]
 
-  // let interval = useRef();
   const setLoading = ()=>{
    let  timeloading =  setTimeout(() => {
       setloading(true)
@@ -169,7 +168,7 @@ export default function HomeLayouts() {
     exit="exit"
       >
 <table>
-<tr className = "tablerow"><td>{letterM}</td><td>{letterU}</td><td>{letterS}</td><td>{letterG}</td><td>{letterF}</td><td>{letterS}</td><td>{letterQ}</td><td>{letterA}</td><td>{letterB}</td><td>{letterL}</td><td>{letterM}</td><td>{letterL}</td><td>{letterU}</td><td>{letterB}</td><td>{letterH}</td><td>{letterD}</td><td>{letterF}</td><td>{letterP}</td><td>{letterF}</td><td>{letterL}</td><td>{letterK}</td><td>{letterI}</td><td>{letterO}</td><td>{letterB}</td><td>{letterM}</td><td>{letterL}</td><td>{letterF}</td></tr>
+  <tbody>
 <tr className = "tablerow"><td>{letterB}</td><td>{letterO}</td><td>{letterT}</td><td>{letterO}</td><td>{letterY}</td><td>{letterM}</td><td>{letterY}</td><td>{letterN}</td><td>{letterY}</td><td>{letterX}</td><td>{letterY}</td><td>{letterA}</td><td>{letterU}</td><td>{letterX}</td><td>{letterH}</td><td>{letterX}</td><td>{letterW}</td><td>{letterF}</td><td>{letterF}</td><td>{letterF}</td><td>{letterV}</td><td>{letterI}</td><td>{letterX}</td><td>{letterQ}</td><td>{letterO}</td><td>{letterU}</td><td>{letterY}</td></tr>
 <tr className = "tablerow"><td>{letterY}</td><td>{letterJ}</td><td>{letterW}</td><td>{letterX}</td><td>{letterO}</td><td>{letterO}</td><td>{letterQ}</td><td>{letterU}</td><td>{letterU}</td><td>{letterQ}</td><td>{letterE}</td><td>{letterC}</td><td>{letterA}</td><td>{letterV}</td><td>{letterA}</td><td>{letterY}</td><td>{letterB}</td><td>{letterG}</td><td>{letterR}</td><td>{letterF}</td><td>{letterD}</td><td>{letterI}</td><td>{letterJ}</td><td>{letterM}</td><td>{letterY}</td><td>{letterT}</td><td>{letterT}</td></tr>
 <tr className = "tablerow"><td>{letterI}</td><td>{letterI}</td><td>{letterY}</td><td>{letterO}</td><td>{letterO}</td><td>{letterF}</td><td>{letterX}</td><td>{letterJ}</td><td>{letterT}</td><td>{letterT}</td><td>{letterK}</td><td>{letterW}</td><td>{letterA}</td><td>{letterV}</td><td>{letterF}</td><td>{letterY}</td><td>{letterR}</td><td>{letterN}</td><td>{letterY}</td><td>{letterI}</td><td>{letterX}</td><td>{letterE}</td><td>{letterF}</td><td>{letterR}</td><td>{letterY}</td><td>{letterF}</td><td>{letterX}</td></tr>
@@ -190,6 +189,7 @@ export default function HomeLayouts() {
 <tr className = "tablerow"><td>{letterE}</td><td>{letterF}</td><td>{letterC}</td><td>{letterX}</td><td>{letterI}</td><td>{letterH}</td><td>{letterI}</td><td>{letterI}</td><td>{letterE}</td><td>{letterI}</td><td>{letterR}</td><td>{letterL}</td><td>{letterM}</td><td>{letterV}</td><td>{letterM}</td><td>{letterG}</td><td>{letterA}</td><td>{letterQ}</td><td>{letterJ}</td><td>{letterK}</td><td>{letterU}</td><td>{letterE}</td><td>{letterV}</td><td>{letterB}</td><td>{letterK}</td><td>{letterG}</td><td>{letterN}</td></tr>
 <tr className = "tablerow"><td>{letterE}</td><td>{letterE}</td><td>{letterJ}</td><td>{letterV}</td><td>{letterI}</td><td>{letterH}</td><td>{letterT}</td><td>{letterF}</td><td>{letterP}</td><td>{letterC}</td><td>{letterB}</td><td>{letterB}</td><td>{letterR}</td><td>{letterF}</td><td>{letterX}</td><td>{letterN}</td><td>{letterT}</td><td>{letterO}</td><td>{letterV}</td><td>{letterG}</td><td>{letterB}</td><td>{letterN}</td><td>{letterV}</td><td>{letterR}</td><td>{letterF}</td><td>{letterN}</td><td>{letterI}</td></tr>
 <tr className = "tablerow"><td>{letterX}</td><td>{letterX}</td><td>{letterF}</td><td>{letterA}</td><td>{letterX}</td><td>{letterS}</td><td>{letterH}</td><td>{letterV}</td><td>{letterL}</td><td>{letterU}</td><td>{letterB}</td><td>{letterH}</td><td>{letterG}</td><td>{letterB}</td><td>{letterC}</td><td>{letterO}</td><td>{letterQ}</td><td>{letterE}</td><td>{letterS}</td><td>{letterS}</td><td>{letterC}</td><td>{letterV}</td><td>{letterQ}</td><td>{letterY}</td><td>{letterF}</td><td>{letterP}</td><td>{letterN}</td></tr>
+</tbody>
 </table>
         <motion.div
           className="loaderMaintext"
