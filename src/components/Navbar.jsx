@@ -17,7 +17,7 @@ export default function Navbar () {
     let interval = useRef();
   
     const startTimer = ()=>{
-      const countDownDate = new Date('july 2, 2023 20:7:00').getTime();
+      const countDownDate = new Date('november 2, 2023 20:7:00').getTime();
       interval = setInterval(()=> {
         const now = new Date().getTime()
         const distance = countDownDate - now
@@ -89,6 +89,10 @@ export default function Navbar () {
            <section className="launchMinutes">
            <span className="number">{minutesLeft}</span>
              <span className="text">Minutes</span>
+           </section>
+           <section className="launchSeconds">
+           <span className="number">{secLeft}</span>
+             <span className="text">Seconds</span>
            </section>
          </div>
        </div>
